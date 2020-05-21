@@ -23,3 +23,5 @@ H:\IMKN\minder\Game\Game\bin\Debug\nunit.framework.dll
 H:\IMKN\minder\Game\Game\bin\Debug\nunit.framework.pdb
 H:\IMKN\minder\Game\Game\bin\Debug\nunit.framework.xml
 H:\IMKN\minder\Game\Game\obj\Debug\Game.csproj.CopyComplete
+H:\IMKN\minder\Game1\Game\obj\Debug\Game.exe
+H:\IMKN\minder\Game1\Game\obj\Debug\Game.pdb
