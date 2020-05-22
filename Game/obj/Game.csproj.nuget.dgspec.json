@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "H:\\IMKN\\minder\\Game1\\Game\\Game.csproj": {}
+  },
+  "projects": {
+    "H:\\IMKN\\minder\\Game1\\Game\\Game.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\IMKN\\minder\\Game1\\Game\\Game.csproj",
+        "projectName": "Game",
+        "projectPath": "H:\\IMKN\\minder\\Game1\\Game\\Game.csproj",
+        "packagesPath": "E:\\Users\\Igor\\.nuget\\packages\\",
+        "outputPath": "H:\\IMKN\\minder\\Game1\\Game\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "E:\\Users\\Igor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "E:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "E:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.16.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
