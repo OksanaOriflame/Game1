@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.View;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -14,15 +15,20 @@ namespace Game.Model
         readonly int Width;
         readonly string Name;
         public List<GameObject> Enemies;
+        public List<Floor> Floors;
         public Player CurrentPlayer;
+        public int State;
 
         public Room (int width, int height, string name, Player player)
         {
+            State = 0;
             CurrentPlayer = player;
+            CurrentPlayer.ThisRoom = this;
             Height = height;
             Width = width;
             Name = name;
             Enemies = new List<GameObject>();
+            Floors = new List<Floor>();
             player.targets = Enemies;
         }
 
@@ -30,23 +36,23 @@ namespace Game.Model
         {
             Enemies.Add(obj);
         }
+        public void AddFloor(int y, int leftX, int rightX)
+        {
+            Floors.Add(new Floor() { Y = y, LeftX = leftX, RightX = rightX });
+        }
     }
 
-    public class Player : GameObject
+    public class Floor
     {
-        public Player(int x, int y)
-        {
-            HP = 100;
-            X = x;
-            Y = y;
-            XHitBox = 6;
-            YHitBox = 28;
-            YMin = 0;
-        }
+        public int Y;
+        public int LeftX;
+        public int RightX;
     }
 
     public class GameObject
     {
+        public int HorizontalDirection;
+        public string ObjectName;
         public int X;
         public int Y;
         public int XHitBox;
@@ -54,11 +60,15 @@ namespace Game.Model
         public int YMin;
         public int HP;
         public int Damage;
+        public int SpriteWidth;
         public Point AttackCenter;
         public Point AttackDirection;
         public Room ThisRoom;
-        public Image CurrentSprite;
         public List<GameObject> targets;
+        public ObjectType ObjType;
+        public SpriteType CurrentSprite;
+        public Direction CurrentDirection;
+        public int State;
 
         public void RegisterHit(int x, int y, int damage)
         {
@@ -78,38 +88,7 @@ namespace Game.Model
         {
 
         }
-
     }
 
-    public class Knight : GameObject
-    {
-        #region
-        public void Attack(int direction)
-        {
-            ThisRoom.CurrentPlayer.RegisterHit(AttackCenter.X + AttackDirection.X * direction, AttackCenter.Y + AttackDirection.Y, Damage);
-        }
-
-        #endregion
-
-        public Knight(int x, int y, Room thisRoom)
-        {
-            X = x;
-            Y = y;
-            targets = new List<GameObject> { thisRoom.CurrentPlayer };
-            XHitBox = 10;
-            YHitBox = 32;
-            YMin = 0;
-            AttackCenter = new Point(X, Y + 18);
-            AttackDirection = new Point(22, 0);
-            Damage = 15;
-            HP = 100;
-            ThisRoom = thisRoom;
-            ThisRoom.AddObject(this);
-        }
-
-        public void NextAction()
-        {
-            //if (ThisRoom.Person.X > )
-        }
-    }
+    
 }
