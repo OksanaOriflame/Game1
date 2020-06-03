@@ -10,13 +10,6 @@ namespace Game.Model
 {
     public class Knight : GameObject
     {
-        #region
-        public void Attack(int direction)
-        {
-            ThisRoom.CurrentPlayer.RegisterHit(AttackCenter.X + AttackDirection.X * direction, AttackCenter.Y + AttackDirection.Y, Damage);
-        }
-
-        #endregion
 
         public Knight(int x, int y, Room thisRoom)
         {
@@ -24,21 +17,31 @@ namespace Game.Model
             CurrentSprite = SpriteType.Stand;
             X = x;
             Y = y;
-            SpriteWidth = 32;
-            targets = new List<GameObject> { thisRoom.CurrentPlayer };
-            XHitBox = 10;
-            YHitBox = 32;
+            SpriteWidth = 128;
+            Targets = new List<GameObject> { thisRoom.CurrentPlayer };
+            XHitBox = 28;
+            YHitBox = 128;
             YMin = 0;
-            AttackCenter = new Point(X, Y + 18);
-            AttackDirection = new Point(22, 0);
-            Damage = 15;
-            HP = 100;
+            Damage = 30;
+            MaxHP = 300;
+            HP = MaxHP;
             ThisRoom = thisRoom;
+            Interval = 200;
+            AttackDistance = 150;
+            Speed = 6;
+            XCorrection = -128;
+            YCorrection = -128;
+            AttackAnimationDuration = 5;
+            AttackTimings = new int[5] { 100, 100, 100, 300, 400 };
+            AttackMoment = 3;
+            AttackCenter = new Point(0, 80);
+            DeathAnimationDuration = 4;
+            IsHitted = false;
+            HitIterator = 0;
+            HitState = 0;
+            MaxHitState = 2;
         }
 
-        public void NextAction()
-        {
-            //if (ThisRoom.Person.X > )
-        }
+        
     }
 }
